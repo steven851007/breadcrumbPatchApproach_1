@@ -34,7 +34,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     
     func drawShape() {
         // Create a coordinates array to hold all of the coordinates for our shape.
-        var coordinates = [
+        let coordinates = [
             CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
             CLLocationCoordinate2D(latitude: 45.534611, longitude: -122.708873),
             CLLocationCoordinate2D(latitude: 45.530883, longitude: -122.678833),
@@ -50,7 +50,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
         ]
         
-        let shape = MGLVisitedTile(coordinates: &coordinates, count: UInt(coordinates.count))
+        let shape = MGLVisitedTile(coords: coordinates, count: coordinates.count)
         
         mapView.addAnnotation(shape)
         
