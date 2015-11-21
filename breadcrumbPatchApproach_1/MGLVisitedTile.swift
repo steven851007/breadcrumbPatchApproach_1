@@ -11,21 +11,27 @@ import Mapbox
 import UIKit
 
 class MGLVisitedTile: MGLMultiPoint,MGLOverlay  {
-
+    
     //class MGLVisitedTile: MGLPolygon  {
     
-    @objc var overlayBounds: MGLCoordinateBounds
+    var overlayBounds: MGLCoordinateBounds
     
-    init(coords: CLLocationCoordinate2D, count: Int) {
-        <#code#>
+    init(coords: [CLLocationCoordinate2D], count: Int) {
+        self.overlayBounds = MGLCoordinateBounds(sw: coords.first!, ne: coords.last!)
+        super.init()
     }
-
+    
+    func intersectsOverlayBounds(overlayBounds: MGLCoordinateBounds) -> Bool {
+        
+        return true
+    }
+    
     
     
     //var coordinate: CLLocationCoordinate2D
     //let overlayBounds: MGLCoordinateBounds
     
-/*
+    /*
     @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
     
     /** The cooordinate rectangle that encompasses the overlay. (required) (read-only)
@@ -53,7 +59,7 @@ class MGLVisitedTile: MGLMultiPoint,MGLOverlay  {
     {
     return(self.initWithCoordinates(coords,count))
     }
-*/
+    */
     
     
 }
